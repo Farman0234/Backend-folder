@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Backend Form</h1>
+      <form class="form" onsubmit="signup(); return false;" method="post">
+        <label for="fullname">Enter Your Name</label>
+        <input type="text" id="fullname" />
+
+        <label for="username">Enter Your User Name</label>
+        <input type="text" id="username" />
+        <!-- <label for="email">Enter Your Email</label>
+        <input type="email" id="Email" /> -->
+        <label for="password">Enter Your Password</label>
+        <input type="password" id="password" />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <p id="message"></p>
+
+      <h2>All Users</h2>
+      <div id="allUserList"></div>
+      <button onclick="getAllusers();">Get All Users</button>
+    </div>
+  </body>
+  <script>
+    function signup() {
+      var fullname = document.getElementById("fullname").value;
+      var username = document.getElementById("username").value;
+      // var email = document.getElementById("email").value;
+
+      var password = document.getElementById("password").value;
+
+      axios
+        .post("http://localhost:799/user", {
+          fullname: fullname,
+          username: username,
+          // email: email,
+          password: password,
+        })
+        .then(function (res) {
+          console.log(res.data);
+          document.querySelector("#message").innerHTML = res.data;
+        })
+        .catch(function (error) {
+          console.log(error.message);
+        });
+    }
+
+    function getAllusers() {
+      axios
+        .get("http://localhost:799/user")
+        .then(function (res) {
+          console.log(res.data);
+          let output = "";
+          res.data.map((eachUser) => {
+            output += `<b>${eachUser.fullname}</b> ${eachUser.username}${eachUser.password} <br>`;
+          });
+          document.querySelector("#allUserList").innerHTML = output;
+        })
+        .catch(function (error) {
+          console.log(error.message);
+        });
+    }
+  </script>
+</html>

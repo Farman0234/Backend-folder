@@ -1,0 +1,87 @@
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Container */
+.form-container {
+  background: #fff;
+  margin-top: 40px;
+  padding: 29px 46px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  width: 470px;
+  text-align: center;
+}
+
+/* Heading */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Labels + Inputs */
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 12px;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #4facfe;
+  outline: none;
+  box-shadow: 0px 0px 6px rgba(79, 172, 254, 0.5);
+}
+
+/* Buttons */
+button {
+  background: #4facfe;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00c6ff;
+}
+
+/* Success Message */
+#message {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+}
+
+/* User List */
+#allUserList {
+  margin-top: 25px;
+  text-align: left;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+}
